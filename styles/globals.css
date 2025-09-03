@@ -1,0 +1,266 @@
+/*
+ * This stylesheet combines the original Hugo site styles with additional
+ * adjustments to ensure the Next.js port matches the look and feel of the
+ * legacy site. The commented block at the top preserves the initial
+ * baseline CSS from the original template for reference. Below that you
+ * will find the actual rules applied to the site, including typography,
+ * layout, hero styling, full‑bleed sections and blog cards. Keep class
+ * names consistent in the JSX markup so these styles apply correctly.
+ */
+
+/*
+:root {
+  --page-max: 1140px;
+  --gutter: 24px;
+}
+html, body { margin:0; padding:0; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.hero { padding: 64px 0; }
+.postList { list-style: none; padding: 0; }
+.postItem { margin: 16px 0; }
+*/
+
+/* ===== Theme vars ===== */
+:root {
+  --page-max: 1140px;
+  --page-gutter: 64px;
+  /* --brand-blue: rgb(0, 22, 255); */
+  --brand-blue: rgb(77, 128, 255);
+
+}
+
+/* Use a serif family matching the Hugo site. The !important flag
+   ensures this font takes precedence over imported frameworks. */
+body {
+  font-family: Georgia, 'Times New Roman', Times, serif !important;
+  background: #fff;
+  color: #111;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  margin: 0;
+  padding: 0;
+}
+
+/* ===== Base ===== */
+* {
+  box-sizing: border-box;
+}
+
+/* Constrained wrapper used for header/hero */
+.page-container {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--page-gutter);
+}
+
+/* Optional helper: make a block break out to full viewport width
+   even if it’s sitting inside a constrained wrapper. */
+.bleed {
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+}
+
+/* ===== Header ===== */
+.brand img {
+  height: 48px;
+}
+.nav-link {
+  color: rgba(0, 0, 0, 0.84);
+  font-weight: 500;
+}
+.hamburger {
+  width: 24px;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-left: 16px;
+  opacity: 0.7;
+}
+.hamburger span {
+  height: 2px;
+  background: rgba(0, 0, 0, 0.6);
+  display: block;
+}
+
+/* ===== Hero ===== */
+.hero {
+  padding: 56px 0 32px;
+}
+
+/* Remove Arial fallback and force the serif family on the tagline */
+.tagline {
+  line-height: 1.1;
+  letter-spacing: 0.1px;
+  margin-top: 16px;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+/* Each line of the hero headline scales between 28px and 42px
+   depending on viewport width. */
+.tagline-line {
+  display: block;
+  font-size: clamp(28px, 4.2vw, 42px);
+  font-weight: 500;
+}
+
+/* Falling‑words block */
+.graphic-block {
+  margin-top: 32px;
+}
+.graphic-frame {
+  border-radius: 0;
+  box-shadow: 0 6px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  overflow: hidden;
+  background: #f7f7fb;
+  position: relative;
+}
+.graphic-aspect {
+  position: relative;
+  width: 100%;
+  padding-top: 62%;
+}
+.graphic-aspect img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Portfolio button (overlay, 8% from left, vertically centered) */
+.cta-portfolio {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  transform: translateY(-50%);
+  z-index: 2;
+}
+.cta-portfolio.btn {
+  padding: 0.65rem 1.25rem;
+  font-weight: 600;
+  background-color: rgb(77, 128, 255);
+  border-color: rgb(77, 128, 255);
+  color: #fff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.cta-portfolio.btn:hover {
+  background-color: rgb(62, 78, 250);
+  border-color: rgb(62, 78, 250);
+}
+
+/* ===== Full‑bleed sections ===== */
+/* Keeping commented original line for reference: */
+/* .bg-brand{ background:var(--brand-blue); color:#fff; font-family:Arial, Helvetica, sans-serif; margin-top: 8%; } */
+.bg-brand {
+  background: var(--brand-blue);
+  color: #fff;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  margin-top: 8%;
+}
+
+.about-title {
+  font-size: 2.5rem;
+  font-weight: 500;
+  margin-bottom: 30px;
+}
+
+/*
+ * Additional adjustments to match the look of the Hugo site and
+ * improve site stability and blog styling. These rules extend the
+ * original CSS rather than override it.
+ */
+
+/* Make the site header sticky and ensure it doesn’t shrink or jump */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: #fff;
+}
+.site-header .page-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Fix logo width so it doesn’t jump around as content loads */
+.site-header .brand img {
+  width: 120px;
+  height: auto;
+  display: block;
+}
+
+/* Grid layout for blog posts on the index page */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Card styling for individual posts */
+.post-card {
+  position: relative;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 16px;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+.post-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+}
+
+
+
+ /* ===== HEADER FIXES — paste at the very end of globals.css ===== */
+
+/* 1) Make the logo larger (force it, in case other rules set height/width) */
+.site-header .brand img{
+  width: 196px !important;   /* tweak this value to taste (e.g., 180–220px) */
+  height: auto !important;
+  display: block;
+}
+
+/* 2) Align header layout: keep items on the left, push nav all the way right */
+.site-header .page-container{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: flex-start !important; /* overrides Bootstrap 'justify-content-between' */
+}
+
+.site-header .site-nav{
+  margin-left: auto;          /* pushes nav to far right */
+  display: flex;
+  gap: 24px;
+}
+
+/* 3) Make nav font match the Portfolio button (Arial, 600) */
+.site-header .site-nav a{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: .2px;
+  color: #111;
+  text-decoration: none;
+}
+
+/* 4) Hide hamburger when nav is visible; only show it on narrow screens */
+.site-header .hamburger{ display: none !important; }
+
+@media (max-width: 768px){
+  .site-header .site-nav{ display: none !important; }
+  .site-header .hamburger{ display: inline-flex !important; }
+}

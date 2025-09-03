@@ -1,0 +1,141 @@
+
+/* Paste your Hugo global styles here to preserve aesthetics */
+/* :root {
+  --page-max: 1140px;
+  --gutter: 24px;
+}
+html, body { margin:0; padding:0; }
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+  line-height: 1.6;
+}
+.container {
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+.hero { padding: 64px 0; }
+.postList { list-style: none; padding: 0; }
+.postItem { margin: 16px 0; } */
+
+
+/* ===== Theme vars ===== */
+:root{
+	--page-max: 1140px;
+	--page-gutter: 64px;
+	/* --brand-blue: rgb(0, 22, 255); */
+  --brand-blue: rgb(134,144,251);
+
+  
+  }
+  
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+  }
+  /* ===== Base ===== */
+  *{ box-sizing: border-box; }
+  body{
+	background:#fff; color:#111;
+	-webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+  }
+  
+  /* Constrained wrapper used for header/hero */
+  .page-container{
+	max-width: var(--page-max);
+	margin-inline: auto;
+	padding-inline: var(--page-gutter);
+  }
+  
+  /* Optional helper: make a block break out to full viewport width
+	 even if it’s sitting inside a constrained wrapper. */
+  .bleed{
+	margin-left: calc(50% - 50vw);
+	margin-right: calc(50% - 50vw);
+  }
+  
+  /* ===== Header ===== */
+  /* .brand img{ height:48px; }
+  .nav-link{ color:rgba(0,0,0,.84); font-weight:500; }
+  .hamburger{ width:24px; display:inline-flex; flex-direction:column; gap:4px; margin-left:16px; opacity:.7; }
+  .hamburger span{ height:2px; background:rgba(0,0,0,.6); display:block; } */
+  
+
+  body {
+    font-family: Georgia, 'Times New Roman', Times, serif !important;
+  }
+
+  /* ===== Hero ===== */
+  .hero{ padding:56px 0 32px; }
+  /* .tagline{ line-height:1.1; letter-spacing:.1px; margin-top:16px; font-family:Arial, Helvetica, sans-serif; } */
+  .tagline{ line-height:1.1; letter-spacing:.1px; margin-top:16px; font-family:Georgia, 'Times New Roman', Times, serif; }
+
+  .tagline-line{ display:block; font-size:clamp(28px,4.2vw,42px); font-weight:500; }
+  
+  /* Falling-words block */
+  .graphic-block{ margin-top:32px; }
+  .graphic-frame{
+	border-radius:0; box-shadow:0 6px 30px rgba(0,0,0,.08);
+	border:1px solid rgba(0,0,0,.08); overflow:hidden; background:#f7f7fb; position:relative;
+  }
+  .graphic-aspect{ position:relative; width:100%; padding-top:62%; }
+  .graphic-aspect img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+  
+  /* Portfolio button (overlay, 25% from left, vertically centered) */
+  .cta-portfolio{ position:absolute; top:50%; left:8%; transform:translateY(-50%); z-index:2; }
+  .cta-portfolio.btn{
+	padding:.65rem 1.25rem; font-weight:600;
+	background-color: rgb(134,144,251); 
+	border-color: rgb(134,144,251); color:#fff;
+  font-family: Arial, Helvetica, sans-serif;
+  }
+  .cta-portfolio.btn:hover{
+	background-color: rgb(62,78,250);
+	border-color: rgb(62,78,250);
+  }
+  
+  /* ===== Full-bleed sections ===== */
+  /* .bg-brand{ background:var(--brand-blue); color:#fff; font-family:Arial, Helvetica, sans-serif; margin-top: 8%; } */
+  .bg-brand{ background:var(--brand-blue); color:#fff; font-family:Georgia, 'Times New Roman', Times, serif; margin-top: 8%; }
+
+  .about-title{ font-size:2.5rem; font-weight:500; margin-bottom:30px; }
+
+ /* ===== HEADER FIXES — paste at the very end of globals.css ===== */
+
+/* 1) Make the logo larger (force it, in case other rules set height/width) */
+.site-header .brand img{
+  width: 196px !important;   /* tweak this value to taste (e.g., 180–220px) */
+  height: auto !important;
+  display: block;
+}
+
+/* 2) Align header layout: keep items on the left, push nav all the way right */
+.site-header .page-container{
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  justify-content: flex-start !important; /* overrides Bootstrap 'justify-content-between' */
+}
+
+.site-header .site-nav{
+  margin-left: auto;          /* pushes nav to far right */
+  display: flex;
+  gap: 24px;
+}
+
+/* 3) Make nav font match the Portfolio button (Arial, 600) */
+.site-header .site-nav a{
+  font-family: Arial, Helvetica, sans-serif !important;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: .2px;
+  color: #111;
+  text-decoration: none;
+}
+
+/* 4) Hide hamburger when nav is visible; only show it on narrow screens */
+.site-header .hamburger{ display: none !important; }
+
+@media (max-width: 768px){
+  .site-header .site-nav{ display: none !important; }
+  .site-header .hamburger{ display: inline-flex !important; }
+}

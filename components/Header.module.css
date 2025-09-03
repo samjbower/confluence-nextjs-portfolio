@@ -1,0 +1,13 @@
+
+.header {
+  padding: 16px;
+  border-bottom: 1px solid #eee;
+}
+.nav {
+  display: flex;
+  gap: 16px;
+  font-weight: 600;
+}
+.nav a {
+  text-decoration: none;
+}
