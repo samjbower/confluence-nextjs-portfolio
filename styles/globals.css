@@ -226,9 +226,9 @@ body {
 
  /* ===== HEADER FIXES — paste at the very end of globals.css ===== */
 
-/* 1) Make the logo larger (force it, in case other rules set height/width) */
+/* 1)logo size */
 .site-header .brand img{
-  width: 196px !important;   /* tweak this value to taste (e.g., 180–220px) */
+  width: 160px !important; 
   height: auto !important;
   display: block;
 }
@@ -238,11 +238,11 @@ body {
   display: flex;
   align-items: center;
   gap: 24px;
-  justify-content: flex-start !important; /* overrides Bootstrap 'justify-content-between' */
+  justify-content: flex-start !important; 
 }
 
 .site-header .site-nav{
-  margin-left: auto;          /* pushes nav to far right */
+  margin-left: auto;         
   display: flex;
   gap: 24px;
 }

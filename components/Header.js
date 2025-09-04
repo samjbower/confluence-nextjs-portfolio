@@ -11,7 +11,7 @@ export default function Header() {
       {/* Remove "justify-content-between" here */}
       <div className="page-container d-flex align-items-center">
         <a href="/" className="brand d-inline-flex align-items-center text-decoration-none">
-          <img src="/images/logo.svg" alt="cnflnce logo" />
+          <img src="/images/cnflncev2.svg" alt="cnflnce logo" />
         </a>
         <nav className="site-nav d-flex align-items-center" aria-label="Main navigation">
           <a href="/blog" className="nav-link text-decoration-none">Posts</a>
