@@ -6,7 +6,7 @@ export const portfolioItems = [
     {
       title: 'CFS: The Lifeblood of the Roaring Fork Valley ',
       summary: 'Interactive data journalism about the Shoshone Permanency Project and its implications.',
-      href: 'https://github.com/samjbower'
+      href: 'https://cfs-app-319620813670.us-central1.run.app/'
     },
     // {
     //   title: '',
