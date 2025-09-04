@@ -4,6 +4,6 @@
 A website to host our projects!
 
 
-## Stack:
+### Details:
 - hosted on vercel
 - Next.js framework
