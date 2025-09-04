@@ -1,7 +1,7 @@
 
 # Confluence Next.js Portfolio website
 
-A website to host out projects.
+A website to host our projects!
 
 
 ## Stack:
